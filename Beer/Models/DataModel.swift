@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct DataResponse: Decodable {
-    var dataModel: [DataModel]
-}
-
-struct DataModel: Decodable {
+class DataModel: Decodable {
     var id: Int
     var name: String
     var tagline: String
     var description: String
     var imageUrl: String
+    var ingredients: IngredientModel
+    var foodPairing: [String]
 
     enum CodingKeys: String, CodingKey {
         case id, name, tagline, description
+        case ingredients
         case imageUrl = "image_url"
+        case foodPairing = "food_pairing"
     }
 }
